@@ -16,19 +16,12 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 ###
 
-express = require 'express'
-router  = express.Router()
-request = require 'request'
-_       = require 'underscore'
-shuffle = _.shuffle
-
-artists = require '../../data/artists'
-
-router.get '/artist/:id/art', (req, res, next) ->
-  artist = artists[req.params.id].site
-  request.get(shuffle(artists[req.params.id].images)[0]).pipe(res)
-
-router.get '/artist/:id/site', (req, res, next) ->
-  res.redirect artists[req.params.id].site
-
-module.exports = router
+module.exports = {
+  "agustina-antonella-luque": {
+    name: "Agustina Antonella Luque"
+    images: [
+      'http://3.bp.blogspot.com/-s0FmYPmBMXc/UN_GF58BCUI/AAAAAAAAAbg/mPEdyVsUysE/s1600/escaner+20125.jpg'
+    ]
+    site: 'http://agustinaantonella.com'
+  }
+}

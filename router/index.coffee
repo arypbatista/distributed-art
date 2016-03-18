@@ -18,3 +18,6 @@
 
 module.exports = (app) ->
   app.use '/api', (require './routes/api')
+
+  app.use '/', (req, res) ->
+    res.render 'index', {title: 'Distributed Art'}
